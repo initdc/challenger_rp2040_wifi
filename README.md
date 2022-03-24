@@ -1,38 +1,36 @@
-# The Challenger RP2040 WiFi
-![Challenger RP2040 WiFi](https://ilabs.se/wp-content/uploads/2021/07/iso-front-1.jpg)
+# The ESP210 ESP8266 modile
+![ESP210](https://ilabs.se/wp-content/uploads/2021/07/iso-front-1.png)
 
-## Challenger RP2040 WiFi information
-The Challenger RP2040 WiFi board is an Arduino/Circuitpython compatible Adafruit Feather format micro controller board packed with loads of functionality for your projects that requires a WiFi connection.
+## ESP210 information
+The ESP210 is a micro controller board packed with loads of functionality in a very small format for your projects that requires a WiFi connection.
 
-The main controller of this board is the Raspberry Pi Pico (RP2040) with 8MByte of FLASH memory and 264KByte of SRAM. The RP2040 MCU is built around the dual 32-bit ARM® Cortex™-M0 CPU's running at up to 133 MHz. It has numerous digital peripherals and interfaces such as high speed SPI and QSPI for interfacing to external flash and a full speed USB device for data transfer and power supply for battery recharging.
+The main controller of this board is the ESP8266 from Espressif connected to 4MByte of FLASH memory and with a total of 80KByte of internal SRAM. The ESP8266 MCU is built around the Tensilica Diamond Standard 106Micro's running at up to 160 MHz. It has a few basic digital peripherals and interfaces such as high speed SPI, I2C and a timer.
 
-## Challenger RP2040 WiFi Key features
-- Dual ARM® Cortex M0 running at up to 133MHz
-- 8 MB Flash, 264 KB RAM
+## ESP210 Key features
+- Tensilica Diamond Standard 106Micro running at up to 160MHz
+- 4 MB Flash, 80 KB RAM
 - 2.4GHz WiFi modem
-- UART, SPI, TWI, I2S
+- UART, SPI, I2C
 - PWM
-- 12-bit ADC
+- 10 - bit ADC
 - USB 2.0
 
 ## The board
 
 ### WiFi solution
-The WiFi modem is an ESP8285 WiFi chip. For those of you that is unfamiliar with this device, it is basically an ESP8266 device with an integrated 1MByte of flash memory. This allows us to have an AT command interpreter inside this chip that the main controller can talk to and connect to you local WiFi network. The communications channel between the two devices is an unused UART on the main controller and the standard UART on the ESP8285. As simple as it can be.
+The WiFi radio is integrated onto the ESP8266 and you can read more about this at Espressifs website.
 
 ### Power
-There is an onboard low power LDO that runs the onboard electronic devices.  The board also comes with a connector for external LiPo batteries as well as a LiPo charger circuit that.
+There is an onboard LDO that runs the onboard electronic devices.
 
 ### Other stuff
-It also has the Challenger standard USB type C connector with ajoining LED's. A red LED for the charging circuit indicating when the attached battery is being charged and a green user programmable LED. In addition to this there is also a blue LED that can be used for signaling RF activity, or anything else really, to the user. The UF2 boot loader uses this LED to indicate that it is waiting for your code to be uploaded. Additionally there is also a user programmable tactile switch that can be used for user input. This button is also used by the boot loader to enter DFU mode.
-
-Anf of course, there is a reset switch. You can not survive without the reset switch =)
+The ESP8266 does not have USB natively so on board there is a USB to serial bridge chip from Silabs called CP2104. This chip handles all the communication towards the PC. It also makes sure the ESP8266 is reset and that the boot mode pin is set correctly when you need to upload new firmware to the board.
 
 ### Pinout
-<img src="https://ilabs.se/wp-content/uploads/2021/07/pinout-diagram-v0.1-1-1024x741.png" alt="drawing"/>
+<img src="https://ilabs.se/wp-content/uploads/2022/03/esp210-pinout-1-936x1024.png" alt="drawing"/>
 
 ### Software support
-The board is supported by both the Arduino environment as well as Circuitpython from Adafruit.
+The board is supported by both the Arduino environment as well as PlatforIO.
 
 ## License
 This design covered by the CERN Open Hardware Licence v1.2 and a copy of this license is also available in this repo.
@@ -43,7 +41,7 @@ This design covered by the CERN Open Hardware Licence v1.2 and a copy of this li
 ### About us
 Invector Labs is a small Swedish engineering company that designs and build electronic devices for hobbyists as well as small and medium sized businesses.
 
-For more information about this board you can visit the product page at our [website](https://ilabs.se/product/challenger-2040-wifi/)
+For more information about this board you can visit the product page at our [website](https://ilabs.se/product/esp8266-module/)
 
 Questions about this product can be addressed to <oshwa@ilabs.se>.
 
